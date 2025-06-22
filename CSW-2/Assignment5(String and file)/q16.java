@@ -1,0 +1,40 @@
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+public class q16 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the file name: ");
+        String fileName = sc.nextLine();
+        File file = new File(fileName);
+        if (!file.exists()) {
+        	System.out.println("The specified file does not exist.");
+        	return;
+        }
+        System.out.println("File Metadata:");
+        System.out.println("Name: " + file.getName());
+        System.out.println("Path: " + file.getAbsolutePath());
+        System.out.println("Size: " + file.length() + " bytes");
+        System.out.println("Readable: " + file.canRead());
+        System.out.println("Writable: " + file.canWrite());
+        System.out.println("Executable: " + file.canExecute());
+        System.out.println("Last Modified: " + formatDate(file.lastModified()));
+        sc.close();
+     }
+	private static String formatDate(long timestamp) {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        return sdf.format(new Date(timestamp));
+    }
+}
+/* output:-
+   Enter the file name: file:///C:/Users/Anurag/OneDrive/Desktop/CSW2_Assignment_Ch16.pdf
+   File Metadata:
+   Name: CSW2_ASSIGNMENT5_SOLN.pdf
+   Path: file:///C:/Users/Anurag/OneDrive/Desktop/CSW2_Assignment_Ch16.pdf
+   Size: 316849 bytes
+   Readable: true
+   Writable: true
+   Executable: true
+   Last Modified: 04/04/2025 01:10:04
+*/

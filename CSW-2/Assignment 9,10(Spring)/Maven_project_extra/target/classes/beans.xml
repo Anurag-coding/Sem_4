@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="address1" class="com.spring.Maven_project_extra.Address">
+        <property name="houseNo" value="19"/>
+        <property name="pinCode" value="831003"/>
+        <property name="city" value="Jamshedpur"/>
+    </bean>
+
+    <bean id="student1" class="com.spring.Maven_project_extra.Student">
+        <property name="rollNo" value="34"/>
+        <property name="name" value="Anurag kumar"/> <!-- Changed from Name to name -->
+        <property name="adde" ref="address1"/> <!-- Added reference to address bean -->
+    </bean>
+</beans>
